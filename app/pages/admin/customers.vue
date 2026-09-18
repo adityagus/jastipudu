@@ -14,7 +14,7 @@ async function contactCustomer(id: string) {
     <AccountNav admin />
     <h1 class="mb-8">Customer</h1>
     <ApiState :pending="pending" :error="error" :empty="!data?.length" @retry="refresh"
-      ><div class="grid gap-4 md:grid-cols-2">
+      ><div class="grid-12 gap-y-4 md:[&>*]:col-span-6">
         <article v-for="c in data" :key="c.id" class="card">
           <h3>{{ c.full_name || 'Belum mengisi nama' }}</h3>
           <p class="muted mt-2">{{ c.phone || 'Telepon belum diisi' }}</p>

@@ -50,14 +50,14 @@ async function remove(id: string) {
   <div class="page">
     <AccountNav admin />
     <h1 class="mb-8">Kelola testimoni</h1>
-    <div class="grid gap-6 md:grid-cols-2">
+    <div class="grid-12 gap-y-6 md:[&>*]:col-span-6">
       <ApiState :pending="pending" :error="error" :empty="!data?.length" @retry="refresh"
         ><div class="space-y-4">
           <article v-for="t in data" :key="t.id" class="card">
             <h3>{{ t.customer_name }} · {{ t.rating }}/5</h3>
             <p class="my-3">{{ t.content }}</p>
             <p class="muted">{{ t.is_published ? 'Terbit' : 'Draft' }}</p>
-            <button class="mt-4 mr-4 text-violet-600" @click="edit(t)">Edit</button>
+            <button class="mt-4 mr-4 text-brand-600" @click="edit(t)">Edit</button>
             <button class="mt-4 text-red-600" @click="remove(t.id)">Hapus</button>
           </article>
         </div></ApiState

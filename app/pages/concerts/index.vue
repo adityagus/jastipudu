@@ -23,7 +23,7 @@ const filtered = computed(
         placeholder="Mau nonton siapa?"
         type="search" /></label
     ><ApiState :pending="pending" :error="error" :empty="!filtered.length" @retry="refresh"
-      ><div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      ><div class="grid-12 gap-y-6 sm:[&>*]:col-span-6 lg:[&>*]:col-span-4">
         <ConcertCard v-for="(c, i) in filtered" :key="c.id" :concert="c" :index="i" /></div
     ></ApiState>
   </div>

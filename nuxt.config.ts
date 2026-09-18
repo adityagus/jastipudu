@@ -14,6 +14,7 @@ export default defineNuxtConfig({
   app: {
     head: {
       title: 'Jastipudu — Lebih dekat dengan panggung',
+      link: [{ rel: 'icon', type: 'image/jpeg', href: '/jastipidu.jpg' }],
       htmlAttrs: { lang: 'id' },
       meta: [
         {

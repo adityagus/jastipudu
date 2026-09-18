@@ -13,7 +13,17 @@ export default defineEventHandler((event) => {
     }
     if (!originHost || originHost !== host)
       throw createError({ statusCode: 403, statusMessage: 'Origin tidak diizinkan.' })
-    if (!getHeader(event, 'content-type')?.startsWith('application/json'))
-      throw createError({ statusCode: 415, statusMessage: 'Gunakan application/json.' })
+    const mediaUpload =
+      event.method === 'POST' &&
+      /^\/api\/admin\/concerts\/[^/]+\/media\/?$/.test(event.path.split('?')[0] ?? '')
+    const contentType = getHeader(event, 'content-type')?.split(';')[0]?.trim().toLowerCase()
+    const expectedType = mediaUpload ? 'multipart/form-data' : 'application/json'
+    if (contentType !== expectedType)
+      throw createError({
+        statusCode: 415,
+        statusMessage: mediaUpload
+          ? 'Gunakan formulir unggah gambar.'
+          : 'Gunakan application/json.',
+      })
   }
 })

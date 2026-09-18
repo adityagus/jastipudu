@@ -8,7 +8,7 @@ const { data, pending, error, refresh } = await useFetch<Testimonial[]>('/api/te
     <h1>Testimoni customer</h1>
     <div class="mt-10">
       <ApiState :pending="pending" :error="error" :empty="!data?.length" @retry="refresh"
-        ><div class="grid gap-6 md:grid-cols-3">
+        ><div class="grid-12 gap-y-6 md:[&>*]:col-span-4">
           <blockquote v-for="t in data" :key="t.id" class="card">
             <p class="text-amber-500" :aria-label="t.rating + ' dari 5 bintang'">
               {{ '★'.repeat(t.rating) }}

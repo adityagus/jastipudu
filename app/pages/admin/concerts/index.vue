@@ -34,7 +34,10 @@ async function remove(c: Concert) {
           <div>
             <h3>{{ c.title }}</h3>
             <p class="muted mt-1">{{ dateTime(c.starts_at) }}</p>
-            <p v-if="new Date(c.starts_at) < new Date()" class="mt-2 text-sm font-medium text-amber-700">
+            <p
+              v-if="new Date(c.starts_at) < new Date()"
+              class="mt-2 text-sm font-medium text-amber-700"
+            >
               Jadwal sudah lewat — ubah jadwal agar tampil di konser mendatang.
             </p>
             <p class="muted mt-2">{{ c.city }} · {{ c.is_active ? 'Aktif' : 'Draft' }}</p>

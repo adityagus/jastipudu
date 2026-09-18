@@ -46,7 +46,7 @@ async function resend() {
       <button class="btn w-full" :disabled="busy">
         {{ busy ? 'Memproses…' : 'Kirim ulang email konfirmasi' }}
       </button>
-      <NuxtLink to="/login" class="block text-sm text-violet-600">Sudah konfirmasi? Masuk</NuxtLink>
+      <NuxtLink to="/login" class="block text-sm text-brand-600">Sudah konfirmasi? Masuk</NuxtLink>
     </form>
   </div>
 </template>

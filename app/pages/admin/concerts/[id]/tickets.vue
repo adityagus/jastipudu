@@ -50,7 +50,7 @@ async function remove(c: Category) {
     <h1>Kategori tiket</h1>
     <p class="muted mt-3 mb-8">{{ data?.title }}</p>
     <ApiState :pending="pending" :error="error" @retry="refresh"
-      ><div class="grid gap-6 lg:grid-cols-2">
+      ><div class="grid-12 gap-y-6 lg:[&>*]:col-span-6">
         <div class="space-y-4">
           <article v-for="c in data?.ticket_categories" :key="c.id" class="card">
             <h3>{{ c.name }}</h3>
@@ -59,7 +59,7 @@ async function remove(c: Category) {
               {{ c.quota }}
             </p>
             <div class="mt-4 flex gap-4">
-              <button class="text-violet-600" @click="edit(c)">Edit</button
+              <button class="text-brand-600" @click="edit(c)">Edit</button
               ><button class="text-red-600" @click="remove(c)">Hapus</button>
             </div>
           </article>

@@ -19,7 +19,7 @@ const stats = computed(() => data.value?.stats)
       <button class="btn-secondary" @click="refresh()">Refresh data</button>
     </div>
     <ApiState :pending="pending" :error="error" @retry="refresh">
-      <section class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <section class="grid-12 gap-y-4 sm:[&>*]:col-span-6 lg:[&>*]:col-span-3">
         <div
           v-for="item in [
             {
@@ -32,7 +32,7 @@ const stats = computed(() => data.value?.stats)
               label: 'Sedang diproses',
               value: stats?.processing || 0,
               link: '/admin/orders?status=processing',
-              tone: 'border-violet-200 bg-violet-50',
+              tone: 'border-brand-200 bg-brand-50',
             },
             {
               label: 'Tiket diamankan',
@@ -44,7 +44,7 @@ const stats = computed(() => data.value?.stats)
               label: 'Pesanan selesai',
               value: stats?.completed || 0,
               link: '/admin/orders?status=completed',
-              tone: 'border-slate-200 bg-white',
+              tone: 'border-stone-200 bg-white',
             },
           ]"
           :key="item.label"
@@ -53,19 +53,19 @@ const stats = computed(() => data.value?.stats)
         >
           <p class="muted">{{ item.label }}</p>
           <p class="mt-3 text-3xl font-bold">{{ item.value }}</p>
-          <NuxtLink class="mt-4 inline-block text-sm font-semibold text-violet-700" :to="item.link"
+          <NuxtLink class="mt-4 inline-block text-sm font-semibold text-brand-700" :to="item.link"
             >Buka antrean →</NuxtLink
           >
         </div>
       </section>
-      <section class="mt-8 grid gap-6 lg:grid-cols-[1.25fr_.75fr]">
-        <div class="card">
+      <section class="mt-8 grid-12 gap-y-6">
+        <div class="card lg:col-span-8">
           <div class="mb-5 flex items-center justify-between">
             <div>
               <p class="eyebrow mb-2">Action queue</p>
               <h2>Butuh tindakan</h2>
             </div>
-            <NuxtLink to="/admin/orders" class="text-sm font-semibold text-violet-600"
+            <NuxtLink to="/admin/orders" class="text-sm font-semibold text-brand-600"
               >Semua order →</NuxtLink
             >
           </div>
@@ -74,7 +74,7 @@ const stats = computed(() => data.value?.stats)
             Tidak ada antrean mendesak. Semua order terpantau.
           </p>
         </div>
-        <div class="card">
+        <div class="card lg:col-span-4">
           <p class="eyebrow mb-2">Quick actions</p>
           <h2 class="mb-5">Kerjakan cepat</h2>
           <div class="grid gap-3">
@@ -84,15 +84,15 @@ const stats = computed(() => data.value?.stats)
             ><NuxtLink class="btn-secondary" to="/admin/customers">Lihat customer</NuxtLink
             ><NuxtLink class="btn-secondary" to="/admin/testimonials">Kelola testimoni</NuxtLink>
           </div>
-          <div class="mt-6 border-t border-slate-200 pt-5">
+          <div class="mt-6 border-t border-stone-200 pt-5">
             <p class="muted">
-              Konser aktif <strong class="text-slate-900">{{ stats?.concerts || 0 }}</strong>
+              Konser aktif <strong class="text-stone-900">{{ stats?.concerts || 0 }}</strong>
             </p>
             <p class="muted mt-2">
-              Customer <strong class="text-slate-900">{{ stats?.customers || 0 }}</strong>
+              Customer <strong class="text-stone-900">{{ stats?.customers || 0 }}</strong>
             </p>
             <p class="muted mt-2">
-              Nilai selesai <strong class="text-slate-900">{{ money(stats?.revenue || 0) }}</strong>
+              Nilai selesai <strong class="text-stone-900">{{ money(stats?.revenue || 0) }}</strong>
             </p>
           </div>
         </div>

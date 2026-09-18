@@ -9,9 +9,9 @@ const { data, pending, error, refresh } = await useFetch<Order[]>('/api/orders')
     <AccountNav />
     <p class="eyebrow mb-3">Ruang konsermu</p>
     <h1>Halo, {{ profile?.full_name || 'teman musik' }}.</h1>
-    <p class="mt-4 text-slate-500">Semua perjalanan menuju panggung, di satu tempat.</p>
+    <p class="mt-4 text-stone-500">Semua perjalanan menuju panggung, di satu tempat.</p>
     <ApiState :pending="pending" :error="error" @retry="refresh"
-      ><div class="my-8 grid gap-4 sm:grid-cols-3">
+      ><div class="my-8 grid-12 gap-y-4 sm:[&>*]:col-span-4">
         <div
           v-for="s in [
             { label: 'Total pesanan', value: data?.length },

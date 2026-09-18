@@ -45,16 +45,23 @@ async function order() {
   <div class="page">
     <NuxtLink to="/concerts" class="muted">← Semua konser</NuxtLink
     ><ApiState :pending="pending" :error="error" @retry="refresh"
-      ><div v-if="data" class="mt-8 grid gap-8 lg:grid-cols-[1.4fr_1fr]">
-        <section>
-          <div class="rounded-3xl bg-violet-950 p-9 text-white">
-            <p class="mb-5 text-sm text-violet-200">{{ data.artist }} · LIVE</p>
+      ><div v-if="data" class="mt-8 grid-12 gap-y-6">
+        <section class="lg:col-span-7">
+          <div
+            class="rounded-3xl border border-brand-100 bg-linear-to-br from-blush-200 to-brand-50 p-6 text-brand-950 sm:p-9"
+          >
+            <p class="mb-5 text-sm text-brand-700">{{ data.artist }} · LIVE</p>
             <h1>{{ data.title }}</h1>
             <p class="mt-8">{{ dateTime(data.starts_at) }}</p>
-            <p class="mt-2 text-violet-200">{{ data.venue }}, {{ data.city }}</p>
+            <p class="mt-2 text-brand-700">{{ data.venue }}, {{ data.city }}</p>
           </div>
-          <img v-if="data.poster_url" :src="data.poster_url" :alt="`Pamflet ${data.title}`" class="mt-6 max-h-[32rem] w-full rounded-2xl object-cover shadow-sm" />
-          <div class="mt-6 grid gap-3 sm:grid-cols-3">
+          <img
+            v-if="data.poster_url"
+            :src="data.poster_url"
+            :alt="`Pamflet ${data.title}`"
+            class="mt-6 max-h-[32rem] w-full rounded-2xl object-cover shadow-sm"
+          />
+          <div class="mt-6 grid-12 gap-y-3 sm:[&>*]:col-span-4">
             <div class="card">
               <p class="eyebrow">Jadwal jelas</p>
               <p class="mt-2 text-sm">Waktu dan venue tertera sebelum order.</p>
@@ -69,17 +76,22 @@ async function order() {
             </div>
           </div>
           <h2 class="mt-8">Tentang konser</h2>
-          <p class="mt-4 whitespace-pre-line leading-7 text-slate-600">{{ data.description }}</p>
+          <p class="mt-4 whitespace-pre-line leading-7 text-stone-600">{{ data.description }}</p>
           <div v-if="data.layout_url" class="mt-8">
             <h2>Layout venue</h2>
-            <img :src="data.layout_url" :alt="`Layout venue ${data.title}`" loading="lazy" class="mt-4 w-full rounded-2xl border border-slate-200 bg-white object-contain" />
+            <img
+              :src="data.layout_url"
+              :alt="`Layout venue ${data.title}`"
+              loading="lazy"
+              class="mt-4 w-full rounded-2xl border border-stone-200 bg-white object-contain"
+            />
           </div>
           <p class="notice mt-6">
             Jastip adalah jasa pembelian tiket. Pesanan belum menjamin tiket didapatkan. Konfirmasi
             ketersediaan dan pembayaran dilakukan bersama admin.
           </p>
         </section>
-        <form class="card h-fit space-y-5 lg:sticky lg:top-6" @submit.prevent="order">
+        <form class="card h-fit space-y-5 lg:col-span-5 lg:sticky lg:top-6" @submit.prevent="order">
           <h2>Titip tiketmu</h2>
           <label
             >Kategori tiket<select v-model="categoryId" required>
@@ -91,7 +103,7 @@ async function order() {
           ><label
             >Jumlah tiket<input v-model.number="quantity" type="number" min="1" max="6" required
           /></label>
-          <div v-if="category" class="space-y-3 border-y border-slate-200 py-5 text-sm">
+          <div v-if="category" class="space-y-3 border-y border-stone-200 py-5 text-sm">
             <p class="flex justify-between">
               <span>Harga tiket × {{ quantity }}</span
               ><strong>{{ money(category.price * quantity) }}</strong>

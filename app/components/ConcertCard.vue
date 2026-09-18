@@ -6,22 +6,30 @@ defineProps<{ concert: Concert; index?: number }>()
 <template>
   <NuxtLink
     :to="'/concerts/' + concert.id"
-    class="group overflow-hidden rounded-2xl border border-slate-200 bg-white"
+    class="group overflow-hidden rounded-2xl border border-stone-200 bg-white"
   >
     <div
-      class="relative flex h-52 flex-col justify-end overflow-hidden p-6 text-white"
+      class="relative flex h-52 flex-col justify-end overflow-hidden p-6 text-brand-950"
       :class="
         (index ?? 0) % 3 === 0
-          ? 'bg-violet-900'
+          ? 'bg-blush-300'
           : (index ?? 0) % 3 === 1
-            ? 'bg-teal-900'
-            : 'bg-orange-900'
+            ? 'bg-blush-200'
+            : 'bg-brand-100'
       "
     >
-      <img v-if="concert.poster_url" :src="concert.poster_url" :alt="concert.title" class="absolute inset-0 h-full w-full object-cover opacity-80" />
-      <div class="absolute inset-0 bg-black/20" />
-      <div class="absolute -right-8 -top-16 h-56 w-56 rounded-full border-[32px] border-white/10" />
-      <span class="relative mb-auto w-fit rounded-full bg-white/15 px-3 py-1 text-xs"
+      <img
+        v-if="concert.poster_url"
+        :src="concert.poster_url"
+        :alt="concert.title"
+        class="absolute inset-0 h-full w-full object-cover"
+      />
+      <div
+        v-if="concert.poster_url"
+        class="absolute inset-0 bg-linear-to-t from-brand-50 via-brand-50/90 to-transparent"
+      />
+      <div class="absolute -right-8 -top-16 h-56 w-56 rounded-full border-[32px] border-white/30" />
+      <span class="relative mb-auto w-fit rounded-full bg-white/90 px-3 py-1 text-xs"
         >LIVE EXPERIENCE</span
       >
       <span class="relative text-3xl font-black tracking-tight">{{ concert.artist }}</span>
@@ -31,10 +39,10 @@ defineProps<{ concert: Concert; index?: number }>()
     </div>
     <div class="space-y-3 p-5">
       <p class="eyebrow">{{ concert.city }}</p>
-      <h3 class="group-hover:text-violet-600">{{ concert.title }}</h3>
+      <h3 class="group-hover:text-brand-600">{{ concert.title }}</h3>
       <p class="muted">{{ dateTime(concert.starts_at) }}</p>
       <p class="muted">{{ concert.venue }}</p>
-      <div class="flex items-center justify-between border-t border-slate-100 pt-4">
+      <div class="flex items-center justify-between border-t border-stone-100 pt-4">
         <p class="text-sm">
           <span class="muted">Tiket mulai </span><br /><strong>{{
             concert.ticket_categories.length
@@ -42,7 +50,7 @@ defineProps<{ concert: Concert; index?: number }>()
               : 'Segera hadir'
           }}</strong>
         </p>
-        <span class="text-violet-600">Lihat detail</span>
+        <span class="text-brand-600">Lihat detail</span>
       </div>
     </div>
   </NuxtLink>

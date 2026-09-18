@@ -27,7 +27,7 @@
       >
         <p class="eyebrow mb-3">Langkah 0{{ i + 1 }}</p>
         <h2>{{ item.title }}</h2>
-        <p class="mt-3 text-slate-600">{{ item.text }}</p>
+        <p class="mt-3 text-stone-600">{{ item.text }}</p>
       </article>
     </div>
     <NuxtLink class="btn mt-8" to="/concerts">Mulai jelajah konser →</NuxtLink>

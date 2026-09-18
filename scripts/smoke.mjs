@@ -69,8 +69,46 @@ try {
     ).status,
     422,
   )
+  const mediaPath = '/api/admin/concerts/00000000-0000-4000-8000-000000000001/media'
+  const upload = new FormData()
+  upload.append('kind', 'poster')
+  upload.append('file', new Blob(['test-image'], { type: 'image/png' }), 'poster.png')
+  const mediaResponse = await fetch(base + mediaPath, {
+    method: 'POST',
+    headers: { Origin: base },
+    body: upload,
+  })
+  // With no Supabase config, reaching the authenticated handler returns 503, not 415.
+  assert.equal(mediaResponse.status, 503, 'Multipart upload reaches media handler')
+  for (const origin of ['https://attacker.invalid', '']) {
+    const response = await fetch(base + mediaPath, {
+      method: 'POST',
+      headers: origin ? { Origin: origin } : {},
+      body: upload,
+    })
+    assert.equal(response.status, 403, 'Upload still requires same-origin request')
+  }
+  for (const path of ['/api/auth/login', '/api/concerts']) {
+    const response = await fetch(base + path, {
+      method: 'POST',
+      headers: { Origin: base },
+      body: upload,
+    })
+    assert.equal(response.status, 415, 'Multipart restricted to media endpoint')
+  }
+  assert.equal(
+    (
+      await fetch(base + mediaPath, {
+        method: 'POST',
+        headers: { Origin: base, 'Content-Type': 'application/json' },
+        body: '{}',
+      })
+    ).status,
+    415,
+    'Media endpoint requires multipart',
+  )
   console.log(
-    'PASS: public SSR pages, protected redirects, missing-config response, CSRF rejection, input validation',
+    'PASS: public SSR pages, protected redirects, missing-config response, CSRF rejection, input validation, multipart media upload routing',
   )
 } finally {
   child.kill()

@@ -11,7 +11,7 @@ defineProps<{ status: Status }>()
         ? 'bg-red-50 text-red-700'
         : status === 'completed'
           ? 'bg-emerald-50 text-emerald-700'
-          : 'bg-violet-50 text-violet-700'
+          : 'bg-brand-50 text-brand-700'
     "
     >{{ statusLabels[status] }}</span
   >
