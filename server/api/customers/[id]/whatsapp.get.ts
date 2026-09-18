@@ -14,7 +14,7 @@ export default defineEventHandler(async (event) => {
     url: data.phone
       ? whatsappUrl(
           data.phone,
-          `Halo ${data.full_name || ''}, kami dari TitipTiket ingin membantu pesananmu.`.trim(),
+          `Halo ${data.full_name || ''}, kami dari Jastipudu ingin membantu pesananmu.`.trim(),
         )
       : null,
   }

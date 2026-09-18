@@ -110,7 +110,7 @@ async function order() {
             class="btn w-full"
             :disabled="busy || !category || new Date(data.starts_at) <= new Date()"
           >
-            {{ busy ? 'Membuat pesanan…' : 'Titip tiket sekarang ↗' }}
+            {{ busy ? 'Membuat pesanan…' : 'Titip tiket sekarang' }}
           </button>
           <p class="muted">Harga dan biaya jasa tersimpan saat pesanan dibuat.</p>
           <WhatsappButton />

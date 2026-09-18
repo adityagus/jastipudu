@@ -13,7 +13,7 @@ export default defineNuxtConfig({
   },
   app: {
     head: {
-      title: 'TitipTiket — Lebih dekat dengan panggung',
+      title: 'Jastipudu — Lebih dekat dengan panggung',
       htmlAttrs: { lang: 'id' },
       meta: [
         {

@@ -34,7 +34,7 @@ onMounted(() => refresh())
             ><NuxtLink :to="profile.role === 'admin' ? '/admin' : '/dashboard'">Dashboard</NuxtLink
             ><button class="text-slate-500" @click="logout">Keluar</button></template
           >
-          <NuxtLink v-else to="/login" class="btn">Masuk / Daftar ↗</NuxtLink>
+          <NuxtLink v-else to="/login" class="btn">Masuk / Daftar</NuxtLink>
         </nav>
       </div>
     </header>
@@ -43,7 +43,7 @@ onMounted(() => refresh())
       <div
         class="mx-auto flex max-w-6xl flex-wrap justify-between gap-5 px-5 py-8 text-sm text-slate-500"
       >
-        <p>titiptiket. • Musiknya kamu, urusan tiketnya kami.</p>
+        <p>Jastipudu. • Musiknya kamu, urusan tiketnya kami.</p>
         <p>Jasa titip independen · Bukan promotor resmi</p>
       </div>
     </footer>

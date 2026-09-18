@@ -40,7 +40,7 @@ const lowestPrice = computed(() => {
           </p>
           <div class="mt-9 flex flex-wrap gap-3">
             <NuxtLink class="btn bg-lime-300 text-slate-950 hover:bg-lime-200" to="/concerts"
-              >Cari konser ↗</NuxtLink
+              >Cari konser</NuxtLink
             ><NuxtLink
               class="btn-secondary border-white/20 bg-white/10 text-white hover:bg-white/15"
               to="/cara-kerja"
@@ -72,7 +72,7 @@ const lowestPrice = computed(() => {
               </p>
             </div>
             <div class="flex justify-between border-t border-slate-300 pt-4 text-sm">
-              <span>titiptiket.</span><span>your seat awaits</span>
+              <span>Jastipudu.</span><span>your seat awaits</span>
             </div>
           </div>
         </div>
@@ -151,13 +151,13 @@ const lowestPrice = computed(() => {
       <section class="rounded-[2rem] bg-lime-300 p-8 text-slate-950 md:p-12">
         <div class="grid gap-8 md:grid-cols-[1fr_auto] md:items-end">
           <div>
-            <p class="eyebrow text-slate-700">Kenapa titiptiket?</p>
+            <p class="eyebrow text-slate-700">Kenapa Jastipudu?</p>
             <h2 class="mt-3 max-w-2xl text-3xl md:text-5xl">
               Lebih siap berangkat, lebih sedikit drama.
             </h2>
           </div>
           <NuxtLink class="btn bg-slate-950 hover:bg-slate-800" to="/cara-kerja"
-            >Pelajari prosesnya ↗</NuxtLink
+            >Pelajari prosesnya</NuxtLink
           >
         </div>
         <div class="mt-10 grid gap-6 border-t border-slate-900/15 pt-7 sm:grid-cols-3">
@@ -213,7 +213,7 @@ const lowestPrice = computed(() => {
         <NuxtLink
           class="btn relative mt-8 bg-lime-300 text-slate-950 hover:bg-lime-200"
           to="/concerts"
-          >Mulai jelajah konser ↗</NuxtLink
+          >Mulai jelajah konser</NuxtLink
         >
       </section>
     </main>

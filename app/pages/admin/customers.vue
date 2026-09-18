@@ -20,7 +20,7 @@ async function contactCustomer(id: string) {
           <p class="muted mt-2">{{ c.phone || 'Telepon belum diisi' }}</p>
           <p class="muted mt-2 break-all">{{ c.id }}</p>
           <button v-if="c.phone" class="btn-secondary mt-4" @click="contactCustomer(c.id)">
-            Hubungi via WhatsApp ↗
+            Hubungi via WhatsApp
           </button>
           <p v-else class="muted mt-4">Nomor WhatsApp belum diisi.</p>
         </article>

@@ -33,6 +33,6 @@ const { data, pending, error, refresh } = await useFetch<Order[]>('/api/orders')
       <p v-if="!data?.length" class="card muted">
         Belum ada pesanan. Temukan konser pertamamu!
       </p></ApiState
-    ><NuxtLink class="btn mt-6" to="/concerts">Jelajahi konser ↗</NuxtLink>
+    ><NuxtLink class="btn mt-6" to="/concerts">Jelajahi konser</NuxtLink>
   </div>
 </template>

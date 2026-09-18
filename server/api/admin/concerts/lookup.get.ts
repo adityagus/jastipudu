@@ -39,7 +39,7 @@ export default defineEventHandler(async (event) => {
     'https://musicbrainz.org/ws/2/artist/',
     {
       query: { query: q, fmt: 'json', limit: 5 },
-      headers: { 'User-Agent': 'TitipTiket/1.0 (contact@titiptiket.local)' },
+      headers: { 'User-Agent': 'Jastipudu/1.0 (contact@jastipudu.local)' },
     },
   )
   return (response.artists || []).map((artist) => ({

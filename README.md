@@ -1,4 +1,4 @@
-# TitipTiket
+# Jastipudu
 
 MVP jastip tiket konser dengan Nuxt 4, Vue 3, TypeScript, Tailwind CSS 4, Nitro, Supabase Postgres dan Supabase Auth. Target deployment Vercel. UI berbahasa Indonesia, mobile-first, tanpa layanan WhatsApp berbayar.
 

@@ -42,7 +42,7 @@ defineProps<{ concert: Concert; index?: number }>()
               : 'Segera hadir'
           }}</strong>
         </p>
-        <span class="text-violet-600">Lihat detail ↗</span>
+        <span class="text-violet-600">Lihat detail</span>
       </div>
     </div>
   </NuxtLink>

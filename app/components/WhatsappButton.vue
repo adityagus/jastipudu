@@ -9,7 +9,7 @@ const { data } = await useFetch('/api/whatsapp', { query: { order: props.order }
     target="_blank"
     rel="noopener noreferrer"
     class="btn-secondary"
-    >Hubungi Jastip via WhatsApp ↗</a
+    >Hubungi Jastip via WhatsApp</a
   >
   <p v-else class="muted">Kontak WhatsApp belum tersedia.</p>
 </template>
